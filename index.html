@@ -3,38 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Keuangan 30/70</title>
-  <link rel="manifest" href="manifest.jsonlogo-placeholder">
+  <title>Dashboard • Keuangan 30/70</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
   <meta name="theme-color" content="#0f172a">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="app-header center">
-      <!-- GANTI src LOGO DENGAN PUNYAMU SENDIRI -->
-      <img src="logo-placeholder.png" alt="Logo" class="logo-hero">
-      <h1 class="hero-title"> </h1>
-      <p class="hero-subtitle">
-        Bagi penghasilan otomatis 30% untuk pengeluaran dan 70% untuk tabungan.
-      </p>
+  <div class="app-shell app-shell-dark">
+    <!-- Toolbar atas -->
+    <header class="app-header toolbar">
+      <div class="toolbar-left">
+        <span class="toolbar-title">Keuangan 30/70</span>
+      </div>
+      <div class="toolbar-right">
+        <button class="icon-btn" onclick="window.location.href='profil.html'">
+          <span class="avatar-circle">U</span>
+        </button>
+      </div>
     </header>
 
-    <main class="hero-main">
-      <section class="hero-card">
-        <h2>Mulai dari penghasilan harian</h2>
-        <p>
-          Catat pemasukan, aplikasi akan membaginya otomatis menjadi
-          saldo pengeluaran dan tabungan.
-        </p>
-        <button class="btn-primary" onclick="window.location.href='dashboard.html'">
-  Buka Dashboard
-</button>
+    <main class="main-content no-padding-top">
+      <!-- Kartu saldo gelap di atas -->
+      <section class="top-balance-area">
+        <article class="card card-balance-large">
+          <div class="balance-label">Total balance</div>
+          <div id="totalIncome" class="balance-amount">Rp 0</div>
+          <div class="balance-sub">
+            Saldo pengeluaran: <span id="saldoPengeluaranTop">Rp 0</span>
+          </div>
+          <div class="balance-sub">
+            Saldo tabungan: <span id="saldoTabunganTop">Rp 0</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- Panel putih dengan tab -->
+      <section class="panel-white">
+        <div class="panel-tabs">
+          <button class="panel-tab-btn panel-tab-active" data-tab="overview">Overview</button>
+          <button class="panel-tab-btn" data-tab="budget">Budget</button>
+          <button class="panel-tab-btn" data-tab="transactions">Transactions</button>
+        </div>
+
+        <!-- Tab Overview -->
+        <div id="panel-overview" class="panel-tab panel-tab-show">
+          <h2 class="panel-title">Ringkasan hari ini</h2>
+          <p class="panel-subtitle">
+            Lihat gambaran umum pengeluaran dan tabungan.
+          </p>
+          <ul id="recentList" class="list"></ul>
+        </div>
+
+        <!-- Tab Budget -->
+        <div id="panel-budget" class="panel-tab">
+          <h2 class="panel-title">Budget 30/70</h2>
+          <p class="panel-subtitle">
+            Penghasilan otomatis dibagi 30% untuk pengeluaran dan 70% untuk tabungan.
+          </p>
+          <div class="budget-bars">
+            <div class="budget-row">
+              <span>Pengeluaran (30%)</span>
+              <div class="budget-bar">
+                <div id="barExpense" class="budget-bar-fill budget-bar-expense"></div>
+              </div>
+            </div>
+            <div class="budget-row">
+              <span>Tabungan (70%)</span>
+              <div class="budget-bar">
+                <div id="barSaving" class="budget-bar-fill budget-bar-saving"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Transactions -->
+        <div id="panel-transactions" class="panel-tab">
+          <h2 class="panel-title">Transaksi terakhir</h2>
+          <p class="panel-subtitle">
+            Daftar singkat pemasukan dan pengeluaran terbaru.
+          </p>
+          <ul id="recentListPanel" class="list"></ul>
+          <button class="btn-link" onclick="window.location.href='transaksi.html'">
+            Lihat semua transaksi →
+          </button>
+        </div>
       </section>
     </main>
 
-    <footer class="app-footer center">
-      <small>Ingat budget anda tipis, 😂</small>
-    </footer>
+    <nav class="bottom-nav">
+      <button class="nav-item nav-active" onclick="window.location.href='dashboard.html'">
+        <span>Beranda</span>
+      </button>
+      <button class="nav-item" onclick="window.location.href='transaksi.html'">
+        <span>Transaksi</span>
+      </button>
+    </nav>
   </div>
 
   <script src="app.js"></script>
