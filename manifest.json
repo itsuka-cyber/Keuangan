@@ -1,7 +1,7 @@
 {
-  "name": "Dompetku",
-  "short_name": "Dompet ku",
-  "description": "Pengatur keuangan dengan pembagian 30% pengeluaran dan 70% tabungan.",
+  "name": "Dompet Ku",
+  "short_name": "Domku",
+  "description": "atur keuangan dengan pembagian 30% pengeluaran dan 70% tabungan.",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
