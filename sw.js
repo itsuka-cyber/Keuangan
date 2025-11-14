@@ -4,12 +4,12 @@ const ASSETS = [
   './index.html',
   './dashboard.html',
   './transaksi.html',
+  './profil.html',
   './styles.css',
   './app.js',
-  './manifest.webmanifest',
+  './manifest.json',
   './icon-192.png',
-  './icon-512.png',
-  './logo-placeholder.png'
+  './icon-512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -32,7 +32,6 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const req = event.request;
-  // Strategi cache-first untuk file lokal
   event.respondWith(
     caches.match(req).then(cached => {
       if (cached) return cached;
