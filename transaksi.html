@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Transaksi • Keuangan 30/70</title>
-  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
   <meta name="theme-color" content="#0f172a">
 </head>
@@ -12,6 +12,9 @@
   <div class="app-shell">
     <header class="app-header">
       <h1>Transaksi</h1>
+      <button class="icon-btn" onclick="window.location.href='profil.html'">
+        <span class="avatar-circle">U</span>
+      </button>
     </header>
 
     <main class="main-content">
@@ -75,9 +78,6 @@
       <section class="card">
         <h2>Riwayat Transaksi</h2>
         <ul id="txList" class="list"></ul>
-<button class="btn-danger" id="btnClearHistory">
-    Hapus semua riwayat
-  </button>
       </section>
     </main>
 
