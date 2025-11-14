@@ -272,6 +272,46 @@ function setupExpenseForm() {
   });
 }
 
+// ------ clear button riwayat pemasukan dan pemasukan ------
+
+function clearHistoryWithConfirm() {
+  const btn = document.getElementById('btnClearHistory');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    if (!state.income.length && !state.expense.length) {
+      alert('Belum ada riwayat untuk dihapus.');
+      return;
+    }
+
+    const ok = confirm(
+      'Yakin ingin menghapus SEMUA riwayat pemasukan dan pengeluaran?
+
+' +
+      '• Saldo pengeluaran akan di-reset ke 0
+' +
+      '• Saldo tabungan akan di-reset ke 0
+' +
+      '• Semua transaksi akan hilang
+
+' +
+      'Tindakan ini tidak bisa dibatalkan.'
+    );
+    if (!ok) return;
+
+    state.saldoPengeluaran = 0;
+    state.saldoTabungan = 0;
+    state.income = [];
+    state.expense = [];
+    saveState();
+
+    renderDashboard();
+    renderTxList();
+
+    alert('Semua riwayat berhasil dihapus dan saldo di-reset ke 0.');
+  });
+}
+
 // ------- PWA: service worker register -------
 function registerSW() {
   if ('serviceWorker' in navigator) {
@@ -291,5 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupTabs();
   setupIncomeForm();
   setupExpenseForm();
+  clearHistoryWithConfirm();
   registerSW();
 });
