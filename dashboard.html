@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard • Keuangan 30/70</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>Dashboard</h1>
+    </header>
+
+    <main class="main-content">
+      <section class="cards-grid">
+        <article class="card card-balance">
+          <h2>Total Penghasilan</h2>
+          <p id="totalIncome" class="amount">Rp 0</p>
+        </article>
+
+        <article class="card card-expense">
+          <h2>Saldo Pengeluaran (30%)</h2>
+          <p id="saldoPengeluaran" class="amount">Rp 0</p>
+        </article>
+
+        <article class="card card-saving">
+          <h2>Saldo Tabungan (70%)</h2>
+          <p id="saldoTabungan" class="amount">Rp 0</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Aktivitas Terbaru</h2>
+        <ul id="recentList" class="list"></ul>
+        <button class="btn-link" onclick="window.location.href='transaksi.html'">
+          Lihat semua transaksi →
+        </button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item nav-active" onclick="window.location.href='dashboard.html'">
+        <span>Beranda</span>
+      </button>
+      <button class="nav-item" onclick="window.location.href='transaksi.html'">
+        <span>Transaksi</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transaksi • Keuangan 30/70</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>Transaksi</h1>
+    </header>
+
+    <main class="main-content">
+      <section class="tabs">
+        <button class="tab-btn tab-active" data-tab="income">Penghasilan</button>
+        <button class="tab-btn" data-tab="expense">Pengeluaran</button>
+      </section>
+
+      <!-- Form Penghasilan -->
+      <section id="tab-income" class="tab-panel tab-panel-active">
+        <form id="formIncome" class="form-card">
+          <label>
+            Nominal penghasilan
+            <input type="number" id="incomeAmount" required min="1" placeholder="contoh: 100000">
+          </label>
+
+          <label>
+            Sumber
+            <input type="text" id="incomeSource" placeholder="Gaji harian, freelance, jualan...">
+          </label>
+
+          <label>
+            Tanggal
+            <input type="date" id="incomeDate">
+          </label>
+
+          <p class="hint" id="incomePreview">
+            30% ke Pengeluaran: Rp 0 • 70% ke Tabungan: Rp 0
+          </p>
+
+          <button type="submit" class="btn-primary">Simpan & Bagi 30/70</button>
+        </form>
+      </section>
+
+      <!-- Form Pengeluaran -->
+      <section id="tab-expense" class="tab-panel">
+        <form id="formExpense" class="form-card">
+          <label>
+            Nominal pengeluaran
+            <input type="number" id="expenseAmount" required min="1" placeholder="contoh: 20000">
+          </label>
+
+          <label>
+            Kategori
+            <input type="text" id="expenseCategory" placeholder="Makan, transport, jajan...">
+          </label>
+
+          <label>
+            Tanggal
+            <input type="date" id="expenseDate">
+          </label>
+
+          <p class="hint" id="expensePreview">
+            Saldo pengeluaran sebelum: Rp 0 • setelah: Rp 0
+          </p>
+
+          <button type="submit" class="btn-primary">Simpan Pengeluaran</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Riwayat Transaksi</h2>
+        <ul id="txList" class="list"></ul>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="window.location.href='dashboard.html'">
+        <span>Beranda</span>
+      </button>
+      <button class="nav-item nav-active" onclick="window.location.href='transaksi.html'">
+        <span>Transaksi</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
