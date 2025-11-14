@@ -41,6 +41,11 @@ body {
   padding: 12px 12px 60px;
 }
 
+/* khusus dashboard & profil: full dark */
+.app-shell-dark {
+  background: radial-gradient(circle at top, #020617, #020617 55%);
+}
+
 .app-header {
   padding: 8px 4px 12px;
   display: flex;
@@ -69,7 +74,7 @@ body {
   color: var(--muted);
 }
 
-/* Hero */
+/* Hero (index) */
 .logo-hero {
   width: 72px;
   height: 72px;
@@ -104,24 +109,49 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Cards */
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-bottom: 16px;
+/* Toolbar */
+.toolbar {
+  padding-top: 12px;
+  padding-bottom: 16px;
 }
 
-@media (min-width: 400px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cards-grid .card-balance {
-    grid-column: span 2;
-  }
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.toolbar-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f97316, #ec4899);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Cards umum */
 .card {
   background: rgba(15,23,42,0.95);
   border-radius: var(--radius);
@@ -136,21 +166,130 @@ body {
   color: var(--muted);
 }
 
-.card-balance {
-  background: radial-gradient(circle at top left, var(--accent-soft), #020617);
+/* Kartu saldo besar (dashboard) */
+.top-balance-area {
+  padding: 0 4px 16px;
 }
 
-.card-expense {
-  background: radial-gradient(circle at top left, rgba(239,68,68,0.15), #020617);
+.card-balance-large {
+  border-radius: 24px;
+  padding: 16px 18px 18px;
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+  box-shadow: 0 24px 55px rgba(0,0,0,0.85);
+  transform-origin: center;
+  animation: cardFloat 4s ease-in-out infinite;
 }
 
-.card-saving {
-  background: radial-gradient(circle at top left, rgba(59,130,246,0.15), #020617);
+.balance-label {
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
-.amount {
-  font-size: 1.2rem;
+.balance-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.balance-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Panel putih bawah dengan tab (dashboard) */
+.no-padding-top {
+  padding-top: 0;
+}
+
+.panel-white {
+  margin-top: -10px;
+  background: #f9fafb;
+  border-radius: 28px 28px 0 0;
+  padding: 14px 14px 80px;
+  color: #020617;
+  box-shadow: 0 -10px 35px rgba(15,23,42,0.9);
+}
+
+.panel-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.panel-tab-btn {
+  flex: 1;
+  border-radius: 999px;
+  border: none;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.panel-tab-active {
+  background: #020617;
+  color: #f9fafb;
+}
+
+.panel-tab {
+  display: none;
+  animation: fadeSlideIn 0.25s ease-out;
+}
+
+.panel-tab-show {
+  display: block;
+}
+
+.panel-title {
+  margin: 6px 0 2px;
+  font-size: 0.9rem;
   font-weight: 600;
+}
+
+.panel-subtitle {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+/* Budget bars */
+.budget-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.budget-row span {
+  font-size: 0.8rem;
+  color: #374151;
+}
+
+.budget-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  width: 0%;
+  transform-origin: left;
+  transition: width 0.4s ease-out;
+}
+
+.budget-bar-expense {
+  background: linear-gradient(90deg, #f97316, #f97373);
+}
+
+.budget-bar-saving {
+  background: linear-gradient(90deg, #22c55e, #0ea5e9);
 }
 
 /* Buttons */
@@ -183,26 +322,7 @@ body {
   cursor: pointer;
 }
 
-  .btn-danger {
-  width: 100%;
-  border: none;
-  border-radius: 999px;
-  padding: 8px 14px;
-  margin-top: 10px;
-  background: linear-gradient(135deg, #ef4444, #b91c1c);
-  color: white;
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  box-shadow: 0 12px 28px rgba(239,68,68,0.45);
-}
-
-.btn-danger:active {
-  transform: translateY(1px);
-  box-shadow: 0 6px 14px rgba(239,68,68,0.35);
-}
-
-/* Tabs */
+/* Tabs (transaksi) */
 .tabs {
   display: flex;
   gap: 8px;
@@ -234,7 +354,7 @@ body {
   display: block;
 }
 
-/* Forms */
+/* Forms (transaksi) */
 .form-card {
   background: rgba(15,23,42,0.95);
   border-radius: var(--radius);
@@ -305,6 +425,133 @@ body {
   color: #f97373;
 }
 
+/* Aksi di kanan list (nominal + hapus) */
+.tx-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-icon-danger {
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: rgba(239,68,68,0.14);
+  color: #fecaca;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.btn-icon-danger:active {
+  background: rgba(239,68,68,0.24);
+}
+
+/* Profil */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 10px;
+}
+
+.profile-avatar-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  padding: 4px;
+  background: radial-gradient(circle at top left, #fb7185, #f97316);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.75);
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #020617;
+}
+
+.profile-name {
+  margin: 10px 0 2px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.profile-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.profile-panel {
+  margin-top: 16px;
+  background: rgba(15,23,42,0.98);
+  border-radius: 20px;
+  padding: 4px 6px;
+  border: 1px solid rgba(148,163,184,0.28);
+  box-shadow: 0 20px 45px rgba(15,23,42,0.9);
+}
+
+.profile-row {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(30,41,59,0.9);
+  cursor: pointer;
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+}
+
+.profile-row-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  margin-right: 10px;
+}
+
+.profile-row-icon-red {
+  background: linear-gradient(135deg, #f97373, #f97316);
+}
+
+.profile-row-icon-green {
+  background: linear-gradient(135deg, #22c55e, #0ea5e9);
+}
+
+.profile-row-icon-pink {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+}
+
+.profile-row-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-row-text span {
+  font-size: 0.85rem;
+}
+
+.profile-row-text small {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.profile-row-chevron {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.profile-row:active {
+  background: rgba(15,23,42,0.8);
+}
+
 /* Bottom nav */
 .bottom-nav {
   position: fixed;
@@ -338,4 +585,25 @@ body {
   background: rgba(15,23,42,0.9);
   color: var(--accent);
   box-shadow: 0 6px 18px rgba(15,23,42,0.9);
+}
+
+/* Animasi */
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
