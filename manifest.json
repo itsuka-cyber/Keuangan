@@ -1,7 +1,7 @@
 {
-  "name": "Keuangan 30/70",
-  "short_name": "Keuangan",
-  "description": "PWA untuk mengatur keuangan dengan pembagian 30% pengeluaran dan 70% tabungan.",
+  "name": "Dompetku",
+  "short_name": "Dompet ku",
+  "description": "Pengatur keuangan dengan pembagian 30% pengeluaran dan 70% tabungan.",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
@@ -9,12 +9,12 @@
   "background_color": "#020617",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
