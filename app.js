@@ -258,21 +258,27 @@ function setupTabs() {
   const panels = document.querySelectorAll('.tab-panel');
   if (!tabButtons.length) return;
 
+  function activate(tabKey) {
+    tabButtons.forEach(b => {
+      b.classList.toggle('tab-active', b.dataset.tab === tabKey);
+    });
+    panels.forEach(p => {
+      p.classList.toggle('tab-panel-active', p.id === 'tab-' + tabKey);
+    });
+  }
+
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      tabButtons.forEach(b => b.classList.remove('tab-active'));
-      btn.classList.add('tab-active');
-
-      const target = btn.dataset.tab;
-      panels.forEach(p => {
-        if (p.id === 'tab-' + target) {
-          p.classList.add('tab-panel-active');
-        } else {
-          p.classList.remove('tab-panel-active');
-        }
-      });
+      activate(btn.dataset.tab);
     });
   });
+
+  // jika URL mengandung #expense, langsung buka tab Pengeluaran
+  if (location.hash === '#expense') {
+    activate('expense');
+  } else {
+    activate('income');
+  }
 }
 
 // ------- Forms logic -------
