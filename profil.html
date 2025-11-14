@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profil • Keuangan 30/70</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0f172a">
+</head>
+<body>
+  <div class="app-shell app-shell-dark">
+    <header class="app-header toolbar">
+      <div class="toolbar-left">
+        <span class="toolbar-title">Profil</span>
+      </div>
+      <div class="toolbar-right">
+        <button class="icon-btn" onclick="window.location.href='dashboard.html'">
+          ✕
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content" style="padding-top: 0;">
+      <section class="profile-header">
+        <!-- GANTI src FOTO SESUAI FILEMU -->
+        <div class="profile-avatar-wrap">
+          <img src="profile.jpg" alt="Foto profil" class="profile-avatar">
+        </div>
+        <h1 class="profile-name" id="profileName">Nama Pengguna</h1>
+        <p class="profile-subtitle" id="profileSince">Member since 2025</p>
+      </section>
+
+      <section class="profile-panel">
+        <button class="profile-row" type="button">
+          <div class="profile-row-icon profile-row-icon-red"></div>
+          <div class="profile-row-text">
+            <span>My cards</span>
+            <small>Kelola metode pembayaran</small>
+          </div>
+          <span class="profile-row-chevron">›</span>
+        </button>
+
+        <button class="profile-row" type="button">
+          <div class="profile-row-icon profile-row-icon-green"></div>
+          <div class="profile-row-text">
+            <span>Notification settings</span>
+            <small>Atur pengingat dan notifikasi</small>
+          </div>
+          <span class="profile-row-chevron">›</span>
+        </button>
+
+        <button class="profile-row" type="button">
+          <div class="profile-row-icon profile-row-icon-pink"></div>
+          <div class="profile-row-text">
+            <span>Account settings</span>
+            <small>Nama, foto, dan keamanan</small>
+          </div>
+          <span class="profile-row-chevron">›</span>
+        </button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="window.location.href='dashboard.html'">
+        <span>Beranda</span>
+      </button>
+      <button class="nav-item" onclick="window.location.href='transaksi.html'">
+        <span>Transaksi</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
